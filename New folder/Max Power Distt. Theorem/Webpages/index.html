@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>powerfactor</title>
+    <link rel="stylesheet" href="../Style/style.css">
+    <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <!--ROW1-->
+        <div class="heading">
+            <!--Heading goes here-->
+            <p>TO VERIFY MAXIMUM POWER DISTRIBUTION THEOREM</p>
+        </div>
+
+        <div class="clear"></div>
+        <!--ROW2-->
+        <div class="r2">
+
+            <div class="r2c1">
+
+
+                <div class="action-buttons">
+                    <p>ACTION BUTTONS</p>
+                    <div class="control-panel-buttons">
+                        <button id="check">CHECK</button>
+                        <button id="add">ADD</button>
+                        <button id="calculate">CALCULATE</button>
+                        <button id="reset" onclick='window.location.reload();'>RESET</button>
+                        <button id="print" onclick=' window.print();'>PRINT</button>
+                        <!--THIS IS TO BE KEPT IN A FLEX BOX-->
+                    </div>
+                </div>
+                <!--Row 2 Col 1 Row1-->
+
+                <div class="loads">
+                    <p>LOADS</p>
+                    <input type="button" id="up">
+                    <img src="../Assets/CFL_Off.png" id="variacImg" height="100" width="100" alt="">
+                    <input type="button" id="down">
+                </div>
+                <!--Row 2 Col 1 Row2-->
+                <div class="o_table">
+                    <p>TABLE</p>
+                    <div class="table">
+                        <!--TABLE TO BE DISPLAYED HERE-->
+                        <table id="valTable">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Var1</th>
+                                <th>Var2</th>
+                                <th>Var3</th>
+                                <th>Var4</th>
+                                <th>Var5</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <!--Row 3 Col 1 -->
+
+
+
+            </div>
+
+
+            <div class="r2c2">
+
+                <div class="circuit">
+                    <p>CIRCUIT</p>
+                    <div class="c-diag">
+                        <img src="../Assets/MCB_Off.png" alt=""  height = "100" width = "100" id= "mcb">
+                        <img src="../Assets/V1.png" width = "179" height = "179"alt="" id = "V">
+                        <img src="../Assets/Pointer.png" width = "44" height = "14"alt="" id="P_V">
+                        <img src="../Assets/A1.png" width = "179" height = "179" alt="" id = "A">
+                        <img src="../Assets/Pointer.png" width = "44" height = "14" alt=""id="P_A">
+                        <img src="../Assets/multimeter_default.png" alt="" height = "240" width = "150" id = "M">
+                        <img src="../Assets/Multimeter pointer.png" alt=""height = "240" width = "150" id = "P_M">
+                        <img src="../Assets/PowerSupplyOff.png" height ="180" id="power" alt="">
+                        <img src="../Assets/Maximum Power Transfer 1.png" height = "350" width = " 500" id='cdiag'alt="">
+                    </div>
+                    <div class="nodes">
+
+                        <button id = "p_v"></button>
+                        <button id = "n_v"></button>
+                        <button id = "p_a"></button>
+                        <button id = "n_a"></button>
+                        <button id = "p_m" ></button>
+                        <button id = "n_m" ></button>
+                        <button id = "p_p"></button>
+                        <button id = "n_p"></button>
+                        <button id = 'p_on'></button>
+                        <button id = "c_p_p" ></button>
+                        <button id = "c_p_n" ></button>
+                        <button id = "c_a_p" ></button>
+                        <button id="c_a_n"  ></button>
+                        <button id = "c_v_p" ></button>
+                        <button id="c_v_n"   ></button>
+                        <button id="mcb_switch"></button>   ></button>
+
+
+                    </div>
+                </div>
+                <div class="circuit_buttons"></div>
+
+                <!--Row 2 Col 2-->
+
+
+            </div>
+
+        </div>
+        <div class="clear"></div>
+
+
+
+
+
+
+
+
+
+        <div class="r3">
+        <div class="r3c1">
+            <div class="calculation">
+                <p>CALCULATION</p>
+            </div>
+            <div class="calc_output"></div>
+        </div>
+        </div>
+
+
+
+
+        <div class="clear"></div>
+
+
+    </div>
+
+
+</body>
+<script src="../Function/function.js"></script>
+
+</html>
