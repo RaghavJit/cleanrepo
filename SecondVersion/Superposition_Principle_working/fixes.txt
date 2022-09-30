@@ -1,0 +1,13 @@
+sliders
+
+replace the word 'circuit' with 'experiment'
+
+range of ammeters: 0 50
+
+labels for showing values of R1, R2, R3 in circuit
+
+label to show value of power supply
+
+rotation origin of needles
+
+calculations tab (given in other txt file)

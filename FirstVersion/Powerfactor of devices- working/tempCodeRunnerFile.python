@@ -1,0 +1,10 @@
+li = ['w', 'y', 'x', 'z']
+n=0
+for i in range(4):
+    for j in range(4):
+        for k in range(4):
+            for l in range(4):
+                if(all([i != j, i != k, i != l, j != k, j != l, k != l])):
+                    print("c_var, ", li[i], " ,",  li[j], " ,",  li[k], " ,",  li[l], ", p_a,")
+                    n=n+1
+print(n)

@@ -1,0 +1,9 @@
+Power Factor = True Power
+			/
+		Apperent Power
+
+Power Factor = Wattmeter Reading
+				/
+		voltmeter * ammeter 
+
+Power Factor = []

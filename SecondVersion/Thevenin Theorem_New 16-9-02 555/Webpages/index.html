@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO VERIFY THEVENIN'S THEOREM</title>
+    <link rel="stylesheet" href="../Style/style.css">
+    <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/round-slider/dist/roundslider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@firestitch/jsplumb@2.12.0/dist/js/jsplumb.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!--ROW1-->
+        <div class="heading">
+            <!--Heading goes here-->
+            <p>TO VERIFY THEVENIN'S THEOREM</p>
+        </div>
+
+        <div class="instructions" id="instTab">
+            <div class="insHeading">
+                <p>Instructions</p>
+
+                <ul class="steps">
+                    <li id="s1">Set the values of resistances R1, R2, R3, R_load and voltage by adjusting the sliders on left</li>
+                    <li id="s2">Make connections and check them by clicking 'CHECK' button</li>
+                        <ul>
+                            <li>To measure R_th, short circuit the terminals for power-supply, and connect the circuit to multimeter, and check connections.</li>
+                            <li>Now measure V_th connect cirucit to power-supply and Voltmeter then and check you connections.</li>
+                            <li>Connect power-supply to circuit, then connect load resistance and Ammeter in series to the two terminals of cirucit.</li>
+                        </ul>
+                    <li id="s3">Click the 'ADD' button to add observations to the table.</li>
+                    <li id="s4">Click the 'CALCULATE' button to verify the reslts.</li>
+                    <li id="s5">Repeat the above process with different values of resistances.</li>
+                </ul>
+            </div>
+            <div class="MyLabel">
+                <p>
+                    Instructions
+                </p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <!--ROW2-->
+        <div class="r2">
+
+            <div class="r2c1">
+
+
+                <div class="action-buttons">
+                    <p>ACTION BUTTONS</p>
+                    <div class="control-panel-buttons">
+                        <button id="check">CHECK</button>
+                        <button id="add">ADD</button>
+                        <button id="calculate" disabled="true">CALCULATE</button>
+                        <button id="reset" onclick='window.location.reload();'>RESET</button>
+                        <button id="print" onclick=' window.print();'>PRINT</button>
+                        <!--THIS IS TO BE KEPT IN A FLEX BOX-->
+                    </div>
+                </div>
+                <!--Row 2 Col 1 Row1-->
+
+                <div class="formulas">
+                   <p>SLIDERS</p>
+
+                   <input type="range" min="100" max="300" step="100" value="100" id="Rls">
+                   <input type="range" min="0" max="50" step="1" value="0" id="variacSlider">
+                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R1">
+                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R2">
+                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R3">
+
+                </div>
+
+                <!--Row 2 Col 1 Row2-->
+                <div class="o_table">
+                    <p>TABLE</p>
+                    <div class="table">
+                        <!--TABLE TO BE DISPLAYED HERE-->
+                        <table id="valTable">
+                            <tr>
+                                <th>S.No.</th>
+                                <th>V_th</th>
+                                <th>R_th</th>
+                                <th>R_load</th>
+                                <th>Reading</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <!--Row 3 Col 1 -->
+
+
+
+            </div>
+
+
+            <div class="r2c2">
+
+                <div class="circuit">
+                    <p>CIRCUIT</p>
+                    <div class="c-diag">
+
+
+                        <img src="../Assets/V1.png" id = "V"height = "215" width = "215" alt="">
+                        <img src="../Assets/Pointer.png" height = "13" width = "56" id = "P_V" alt="">
+
+                        <img src="../Assets/A1.png" id = "A" height = "215" width = "215" alt="">
+                    <img src="../Assets/Pointer.png" height = "13" width = "56" id = "P_A" alt="">
+
+                        <br>
+
+                    <img src="../Assets/current_src_off.png" alt="" id = "power" height = "190" width = "316" >
+
+                    <img src="../Assets/THEVENIN.png" id = "circuit_diagram" alt="" height = "430" width = "550" >
+
+
+
+                    <div class="nodes">
+
+                        <div class="positive">
+
+
+                            <button id="p_v"></button>
+                            <button id="n_v"></button>
+                            <button id="p_a"></button>
+                            <button id="n_a"></button>
+
+
+
+                            <button id="p_power"></button>
+                            <button id="n_power"></button>
+                            <button id="on_power"></button>
+
+                            <button id="c_p_power1"></button>
+                            <button id="c_n_power1"></button>
+
+                            <button id="c_ul"></button>
+                            <button id="c_ur"></button>
+                            <button id="c_ll"></button>
+                            <button id="c_lr"></button>
+
+                            <button id="p_mul"></button>
+                            <button id="n_mul"></button>
+
+                        </div>
+
+                    </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="circuit_buttons"></div>
+                <div class="slider_values"></div>
+                <!--Row 2 Col 2-->
+
+
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+
+
+        <div class="r3">
+            <div class="calculation">
+                <p>CALCULATIONS</p>
+                <form>
+                    <label for="V1reading">Voltmeter Reading: </label>
+                    <input type="text" name="V1reading" id="V1reading"><br>
+
+                    <label for="A1reading">Ammeter Reading: </label>
+                    <input type="text" name="A1reading" id="A1reading"><br>
+
+                    <label for="W1reading">Wattmeter Reading: </label>
+                    <input type="text" name="W1reading" id="W1reading"><br>
+
+                    <label for="answer">Power Factor of the Load is: </label>
+                    <input type="text" name="answer" id="answer"><br>
+                </form>
+
+            </div>
+            <div class="calc_output"></div>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script src="../Function/function.js"></script>
+
+</html>

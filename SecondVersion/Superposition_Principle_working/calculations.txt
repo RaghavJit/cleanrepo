@@ -1,0 +1,14 @@
+Both power-supplies connected: R1=[] R2=[] R3=[]
+
+Current supply connected: R1(c)=[] R2(c)=[] R3(c)=[]
+
+Voltage supply connected:  R1(i)=[] R2(i)=[] R3(i)=[]
+
+varification: R1(c)-R1(i) = R1
+                []   []     []
+
+              R2(c)+R2(i) = R2
+                []   []     []
+
+              R3(c)-R3(i) = R3
+                []   []     []

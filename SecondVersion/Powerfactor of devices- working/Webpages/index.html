@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Factor of Devices</title>
+    <link rel="stylesheet" href="../Style/style.css">
+    <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@firestitch/jsplumb@2.12.0/dist/js/jsplumb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!--ROW1-->
+        <div class="heading">
+            <!--Heading goes here-->
+            <p>POWER FACTOR OF DIFFERENT LOADS</p>
+        </div>
+
+        <div class="instructions" id="instTab">
+            <div class="insHeading">
+                <p>Instructions</p>
+
+                <ul class="steps">
+                    <li id="s1">Make connections by dragging the nodes.</li>
+                        <ul>
+                            <li>Connect input of variac to MCB.</li>
+                            <li>Connect output of variac to voltmeter.</li>
+                            <li>Connect fuse and switch (in series) with the positive of variac.</li>
+                            <li>Connect the fuse/switch to positive of ammeter.</li>
+                            <li>Connect negative of ammeter, to M and C of the wattmeter.</li>
+                            <li>Connect V of wattmeter to positive of load, and L to negative of load.</li>
+                        </ul>
+                    <li id="s2">Check your connections by clicking on the 'CHECK' button.</li>
+                    <li id="s3">Choose a load by clicking on the 'LOAD' button.</li>
+                    <li id="s4">Turn on the MCB and adjust the value of output voltage on variac, until the voltage is
+                        230V.</li>
+                    <li id="s5">Click the 'ADD' button to add the values to the observation table.</li>
+                    <li id="s6">Click the 'CALCULATE' button to calculate the powerfactor of the load. </li>
+                    <li id="s7">Change the load and repeat the above process, to get powerfactor of all the other loads
+                    </li>
+                </ul>
+            </div>
+            <div class="MyLabel">
+                <p>
+                    Instructions
+                </p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <!--ROW2-->
+        <div class="r2">
+
+            <div class="r2c1">
+
+
+                <div class="action-buttons">
+                    <p>ACTION BUTTONS</p>
+                    <div class="control-panel-buttons">
+                        <button id="check">CHECK</button>
+                        <button id="add" disabled="true">ADD</button>
+                        <button id="calculate">CALCULATE</button>
+                        <button id="reset" onclick='window.location.reload();'>RESET</button>
+                        <button id="print" onclick=' window.print();' disabled="true">PRINT</button>
+                        <!--THIS IS TO BE KEPT IN A FLEX BOX-->
+                    </div>
+                </div>
+                <!--Row 2 Col 1 Row1-->
+
+                <div class="formulas">
+                    <p>FORMULAS</p>
+                    <input type="range" min="0" max="230" id="variacSlider" value="0" disabled="true">
+                </div>
+
+                <!--Row 2 Col 1 Row2-->
+                <div class="o_table">
+                    <p>TABLE</p>
+                    <div class="table">
+                        <!--TABLE TO BE DISPLAYED HERE-->
+                        <table id="valTable">
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Volts</th>
+                                <th>Amps</th>
+                                <th>Watts</th>
+                                <th>Power Factor</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <!--Row 3 Col 1 -->
+
+
+
+            </div>
+
+
+            <div class="r2c2">
+
+                <div class="circuit">
+                    <p>CIRCUIT</p>
+                    <div class="c-diag">
+                        <img src="../Assets/MCB_Off.png" id="MCB" height="120" width="100" alt="">
+
+                        <img src="../Assets/V1.png" id="V" height="180" width="180" alt="">
+                        <img src="../Assets/Pointer.png" height="11" width="44" id="P_V" alt="">
+
+                        <img src="../Assets/A1.png" id="A" height="180" width="180" alt="">
+                        <img src="../Assets/Pointer.png" height="11" width="44" id="P_A" alt="">
+
+                        <img src="../Assets/wattmeter.png" id="W" height="220" width="220" alt="">
+                        <img src="../Assets/Pointer.png" height="15" width="60" id="P_W" alt="">
+
+
+
+                        <img src="../Assets/Fuse_normal.png" id="fuse" height="30" width="90" alt="">
+                        <img src="../Assets/Switch_Off.png" id="switch" height="200" width="150" alt="">
+                        <img src="../Assets/Variac_Knob.png" id="Var_Knob" height="100" width="100" alt="">
+                        <img src="../Assets/Variac_OFF.png" id="Var" height="400" width="410" alt="">
+
+
+
+                        <div class="loads">
+                            <input type="button" id="up">
+                            <img src="../Assets/NoLoad.png" id="loadImg" height="100" width="100" alt="">
+                        </div>
+                        <div class="nodes">
+
+                            <div class="positive">
+                                <button id="p_mcb"></button>
+                                <button id="n_mcb"></button>
+                                <button id="on_mcb"></button>
+                                <button id="p_fuse"></button>
+                                <button id="n_fuse"></button>
+                                <button id="p_switch"></button>
+                                <button id="n_switch"></button>
+                                <button id="p_v"></button>
+                                <button id="n_v"></button>
+                                <button id="p_a"></button>
+                                <button id="n_a"></button>
+                                <button id="v_w"></button>
+                                <button id="l_w"></button>
+                                <button id="m_w"></button>
+                                <button id="c_w"></button>
+                                <button id="a_var"></button>
+                                <button id="b_var"></button>
+                                <button id="c_var"></button>
+                                <button id="d_var"></button>
+                                <button id="var_on"></button>
+                                <button id="p_l"></button>
+                                <button id="n_l"></button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="circuit_buttons"></div>
+                <div class="slider_values"></div>
+                <!--Row 2 Col 2-->
+
+
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+
+
+        <div class="r3">
+            <div class="calculation">
+                <p>CALCULATIONS</p>
+                <form>
+                    <label for="V1reading">Voltmeter Reading: </label>
+                    <input type="text" name="V1reading" id="V1reading"><br>
+
+                    <label for="A1reading">Ammeter Reading: </label>
+                    <input type="text" name="A1reading" id="A1reading"><br>
+
+                    <label for="W1reading">Wattmeter Reading: </label>
+                    <input type="text" name="W1reading" id="W1reading"><br>
+
+                    <label for="answer">Power Factor of the Load is: </label>
+                    <input type="text" name="answer" id="answer"><br>
+                </form>
+
+            </div>
+            <div class="calc_output"></div>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script src="../Function/function.js"></script>
+
+</html>

@@ -1,0 +1,29 @@
+replace the word 'circuit' in the experiment tab
+and write 'experiment' instead
+
+button for changing load
+
+write formulas in formula tab:
+
+Power Factor = True Power
+			/                = cos(Phase angle)
+		  Apperent Power
+
+calculations tab (given in other txt file)
+
+replace the default image 'Choose A Load'
+
+range for voltmeter: 0 230 V
+range for ammeter: 0 500 mA
+range for wattmeter: 100 W
+
+Variac nodes are too close to each other
+My idea for fixing it:
+widen the squrae part of variac and place the nodes
+far apart.
+We are also supposed to write 'input' and 'output'
+on nodes of variac
+
+colors of nodes
+
+add display label for powersupply values
