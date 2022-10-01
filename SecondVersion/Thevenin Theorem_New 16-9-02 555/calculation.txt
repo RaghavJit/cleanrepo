@@ -1,7 +1,7 @@
 calculations
 (th to be written in subscript)
 
-V_th / R_th = Current
+V_th / R_th+R_l = Current
 
 Reading from experiment = []
 calculation = []
