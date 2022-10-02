@@ -1,0 +1,10 @@
+calculations
+(th to be written in subscript)
+
+V_th / R_th = Current
+
+Reading from experiment = []
+calculation = []
+
+calculation = Observation
+

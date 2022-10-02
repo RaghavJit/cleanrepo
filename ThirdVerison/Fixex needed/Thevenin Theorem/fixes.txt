@@ -1,0 +1,15 @@
+add multimeter
+
+calculation tab
+
+rotation origin of needels
+
+range of voltmeter 0 50v
+
+range of ammeter 0 500 mA
+
+add display labels for values of Rl R1 R2 R3
+
+Also add a display label for powersupply
+
+follow the new calculations desgine

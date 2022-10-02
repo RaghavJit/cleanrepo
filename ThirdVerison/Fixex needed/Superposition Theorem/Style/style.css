@@ -1,0 +1,528 @@
+/*BASE STYLING GOES HERE*/
+body{
+    background-image: linear-gradient(#eaeaea,#d6d6d6);
+    background-repeat: no-repeat;
+}
+.clear{
+    float:none;
+}
+
+.container{
+
+    background-color: #606471;
+    width: 1500px;
+    /* height: 1300px; */
+    height:auto;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.heading{
+    height:60px;
+    width:1400px;
+    margin: 0 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    background-color: #eaeaea;
+    border-radius: 10px;
+
+}
+.r2{
+    float:left;
+
+    width: 1500px;
+    margin: 00px 30px;
+    border-radius: 10px;
+
+}
+
+.r2c1{
+    float:left;
+
+    width: 500px;
+    height: 300px;
+
+
+    border-radius: 10px;
+
+}
+.action-buttons{
+    background-color: #eaeaea;
+    width: 500px;
+    height: 100px;
+
+
+    border-radius: 10px;
+
+}
+.formulas{
+    display: block;
+    background-color: #eaeaea;
+    width: 500px;
+    height: 195px;
+    border-radius: 10px;
+    margin:0 auto;
+
+}
+
+.r2c2{
+
+   float:left;
+    background-color: rgb(35, 35, 35);
+    width: 870px;
+    height: 600px;
+    border-radius: 10px;
+    margin: 20px 30px;
+
+}
+.r3{
+    float:left;
+
+    width: 1400px;
+    height: 500px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+    background-color: white;
+    color: #111111;
+
+
+
+}
+.r2c1 .o_table{
+    float:left;
+
+    width: 500px;
+    height: 250px;
+    background-color: #eaeaea;
+    margin-top: 30px;
+    border-radius: 10px;
+
+}
+
+
+.r2c1 .o_table p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.r3c2{
+    float:left;
+    background-color: rgb(35, 35, 35);
+    width: 870px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 0px 30px;
+
+}
+
+/*Text Edits Default*/
+.heading p{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.action-buttons p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.formulas p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.o_table p{
+
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+
+.circuit p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color: #eaeaea;
+}
+
+.calculation p{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Zacbel X', sans-serif;
+    color: #111111;
+}
+
+
+/*Buttons CSS*/
+.action-buttons {
+    border: none;
+
+}
+
+.control-panel-buttons {
+    display: block;
+
+    height: 40px;
+    width: 500px;
+    background-color: #eaeaea;
+
+    border-radius: 10px;
+    text-align: center;
+}
+
+.control-panel-buttons button {
+    border: none;
+    height: 35px;
+    outline: none;
+    background-color: rgba(129, 129, 129, 0.313);
+
+    margin: 0px 10px;
+    border-radius: 10px;
+
+
+    text-align: center;
+    font-family: 'Foco Trial', sans-serif;
+    font-size: 20px;
+    transition: all 0.25s ease-in, border 0.001s ease-in-out;
+    cursor: pointer;
+}
+
+.control-panel-buttons button:hover {
+    background-color: #1e1e1ee8;
+    color: rgb(238, 234, 234);
+
+}
+
+.control-panel-buttons button:active {
+    background-color: #606471;
+    color: rgb(238, 234, 234);
+    border: 3px solid #6a6b6e;
+}
+/*Table Css*/
+.o_table {
+
+
+
+    border-radius: 10px;
+    width: 500px;
+    height: 380px;
+
+
+
+}
+
+.o_table table {
+    width: 500px;
+    text-align: center;
+    padding: 2px;
+
+}
+
+.o_table td {
+    border-radius: 0px;
+    border: 1px solid #1e1e1e;
+}
+
+.o_table th {
+    border-radius: 10px;
+    border: 2px solid #1e1e1e;
+}
+
+
+/*Assets Placement*/
+
+#MCB{
+    position: relative;
+    bottom:40px;
+}
+#A_1{
+    position: relative;
+    left:80px;
+}
+#A_2{
+    position: relative;
+    left:39px;
+}
+#A_3{
+    position: relative;
+    right:7px;
+}
+#P_A1{
+    position: relative;
+    bottom:94.5px;
+    right:64px;
+    transform-origin: 89%;
+}
+#P_A2{
+    position: relative;
+    bottom:94.5px;
+    right:105px;
+    transform-origin: 89%;
+}
+#P_A3{
+    position: relative;
+    bottom: 94.5px;
+    right:150px;
+    transform-origin: 89%;
+}
+#power_1{
+    position: relative;
+    bottom:120px;
+    right:30px;
+}
+#circuit_diagram{
+    position: relative;
+    right:105px;
+    bottom:30px;
+}
+#power_2{
+    position: relative;
+    bottom:274px;
+    left:650px;
+}
+
+/*Nodes Placement Start Here*/
+.nodes{
+    position:relative;
+    bottom:200px;
+
+}
+.nodes button{
+border:none;
+background:none;
+background-color: green;
+float:left;
+height:15px;
+width:15px;
+border-radius: 25px;
+cursor:pointer;
+}
+#p_mcb{
+position: relative;
+bottom:378px;
+left:31px;
+opacity: 0;
+}
+#n_mcb{
+position: relative;
+bottom:378px;
+left:42px;
+opacity: 0;
+}
+#on_mcb{
+position: relative;
+bottom:394px;
+right:12px;
+width:70px;
+opacity: 0;
+}
+#p_a1{
+    position: relative;
+bottom:377px;
+left:139px;
+}
+#n_a1{
+    position: relative;
+bottom:377px;
+left:176px;
+}
+#p_a2{
+    position: relative;
+bottom:377px;
+left:313px;
+}
+#n_a2{
+    position: relative;
+    bottom:377px;
+    left:350px;
+}
+#p_a3{
+    position: relative;
+bottom:377px;
+left:483px;
+}
+#n_a3{
+    position: relative;
+    bottom:377px;
+    left:520px;
+}
+#p_power1{
+    position:relative;
+    bottom:135px;
+    right:157px;
+}
+#n_power1{
+    position:relative;
+    bottom:135px;
+    right:142.5px;
+}
+
+#on_power1{
+    position:relative;
+    bottom:196px;
+    right:85px;
+    height:25px;
+    width:25px;
+    opacity: 0;
+}
+#c_p_power1{
+    position:relative;
+    bottom:193px;
+    right:42px;
+}
+#c_n_power1{
+    position:relative;
+    bottom:156px;
+    right:57px;
+}
+#c_p_a1{
+    position:relative;
+    bottom:273.5px;
+    right:45px;
+}
+#c_n_a1{
+    position:relative;
+    bottom:273.5px;
+    right:30px;
+}
+#c_p_a2{
+    position:relative;
+    bottom:240px;
+    left:120px;
+}
+#c_n_a2{
+    position:relative;
+    bottom:218px;
+    left:104px;
+}
+#c_p_a3{
+    position:relative;
+    bottom:273px;
+    left:268px;
+}
+#c_n_a3{
+    position:relative;
+    bottom:273px;
+    left:282.9px;
+}
+#c_p_power2{
+    position: relative;
+    bottom:193px;
+    left:286px;
+}
+#c_n_power2{
+    position: relative;
+    bottom:155px;
+    left:271px;
+}
+#p_power2{
+
+    position: relative;
+    bottom:137px;
+    left:319px;
+}
+#n_power2{
+    position: relative;
+    bottom:137px;
+    left:333px;
+}
+#on_power2{
+    position: relative;
+    bottom:197px;
+    left:391.5px;
+    height:25px;
+    width:25px;
+    opacity: 0;
+}
+
+/*Instruction Start here*/
+
+.instructions {
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    z-index: +2;
+    filter: drop-shadow(2px 2px 8px rgba(56, 53, 53, 0.315));
+    font-family: 'Foco Trial', sans-serif;
+    font-size: 19px;
+    padding-top: -20px;
+    overflow: visible;
+
+    transition: all 0.2s ease-in-out;
+
+
+    position:absolute;
+
+    top: 40px;
+    left: -300px;
+
+    height: 650px;
+    width: 300px;
+}
+
+.instructions:hover {
+    left: 0px;
+}
+
+.insHeading {
+
+    background-color: #afaeae;
+    border-radius: 8px;
+    margin-right: 0px;
+    margin-left: 10px;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 30px;
+
+    height: 40px;
+    width: 90%;
+}
+
+.steps {
+    margin-top: -20px;
+    margin-left: 0px;
+    margin-right: -5px;
+    text-align: left;
+    padding-top: 0px;
+    border-radius: 10px;
+    font-size: 19px;
+    overflow: scroll;
+    height: 550px;
+}
+
+.MyLabel {
+    background-color: #111111;
+    color: #e8e8e8;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
+
+    height: 120px;
+    width: 50px;
+
+    position: absolute;
+    top: 10px;
+    left: 300px;
+}
+
+#s1{
+    color: red;
+}
+
+/* Making images unselectable */
+img {
+    pointer-events: none;
+    -moz-user-select: none;
+user-select: none;
+user-drag: none; 
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+}
