@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>powerfactor</title>
     <link rel="stylesheet" href="../Style/style.css">
+    <link rel="stylesheet" href="../../../new/disabledrag.css">
+    <script src="https://cdn.jsdelivr.net/npm/@firestitch/jsplumb@2.12.0/dist/js/jsplumb.min.js"></script>
+
     <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
 
@@ -42,9 +45,11 @@
 
                 <div class="loads">
                     <p>LOADS</p>
-                    <input type="button" id="up">
-                    <img src="../Assets/CFL_Off.png" id="variacImg" height="100" width="100" alt="">
-                    <input type="button" id="down">
+                    <center>
+                        RL<input type="range" max="200" value="100"><br>
+                        R1<input type="range" max="200" value="100"><br>
+                        V<input type="range" max="200" value="100"><br>
+                    </center>
                 </div>
                 <!--Row 2 Col 1 Row2-->
                 <div class="o_table">
@@ -86,7 +91,7 @@
                         <img src="../Assets/PowerSupplyOff.png" height ="180" id="power" alt="">
                         <img src="../Assets/Maximum Power Transfer 1.png" height = "350" width = " 500" id='cdiag'alt="">
                     </div>
-                    <div class="nodes">
+                    <div class="nodes" id="connections_buttons">
 
                         <button id = "p_v"></button>
                         <button id = "n_v"></button>
@@ -96,7 +101,7 @@
                         <button id = "n_m" ></button>
                         <button id = "p_p"></button>
                         <button id = "n_p"></button>
-                        <button id = 'p_on'></button>
+                        <button id = "p_on"></button>
                         <button id = "c_p_p" ></button>
                         <button id = "c_p_n" ></button>
                         <button id = "c_a_p" ></button>
