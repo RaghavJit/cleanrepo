@@ -301,11 +301,96 @@ body {
 
 #variacSlider {
     position: relative;
-    bottom: 330px;
-    right: 110px;
+    bottom: 390px;
+    left: 140px;
     width: 90px;
+    z-index: +2;
+    position: relative;
+    appearance: none;
+    height: 20px;
+    background-color: #111111;
+    border-radius: 2px;
+
+}
+#variacSlider::-webkit-slider-thumb {
+    z-index: +2;
+    appearance: none;
+    height: 40px;
+    border-radius: 2px;
+    width: 10px;
+    cursor: grab;
+    background-color: #aa0a0a;
+
+
 }
 
+#variacSlider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+#variacSlider:disabled {
+    z-index: +2;
+    background-color: #808080;
+    cursor: default;
+
+
+}
+
+#variacSlider:disabled::-webkit-slider-thumb {
+
+    background-color: #808080;
+    cursor: default;
+
+}
+
+/*
+#PSval {
+    z-index: +2;
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 100px;
+    right: 16.5em;
+    top: 10.2em;
+
+    background-color: #111111;
+    border-radius: 2px;
+
+}
+
+#PSval::-webkit-slider-thumb {
+    z-index: +2;
+    appearance: none;
+    height: 40px;
+    border-radius: 2px;
+    width: 10px;
+    cursor: grab;
+    background-color: #aa0a0a;
+
+
+}
+
+#PSval::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+#PSval:disabled {
+    z-index: +2;
+    background-color: #808080;
+    cursor: default;
+
+
+}
+
+#PSval:disabled::-webkit-slider-thumb {
+
+    background-color: #808080;
+    cursor: default;
+
+}
+
+
+*/
 /*Nodes Placement Start Here*/
 
 .nodes {
@@ -619,23 +704,57 @@ img {
     font-family: 'Seven Segment';
     font-weight: bold;
     border: inset;
-    font-size: 40px;
+    font-size: 20px;
 
-    width: 80px;
-    height: 40px;
+    width: 50px;
+    height:25px;
+
+    bottom:170px;
+    right:167px;
 }
 
 #MMDisplay {
     position: relative;
-    background-color: rgba(24, 22, 22, 0.834);
-    color: red;
+    background-color: rgba(24, 22, 22, 0);
+    color: rgb(165, 20, 20);
 
-    text-align: center;
+    text-align: right;
     font-family: 'Seven Segment';
     font-weight: bold;
     border: hidden;
-    font-size: 40px;
+    font-size: 25px;
 
-    width: 70px;
-    height: 35px;
+    width: 45px;
+    height: 30px;
+
+    bottom: 470px;
+    left:475px;
+}
+#RlDisplay,#R1Display,#R2Display,#R3Display{
+position: relative;
+width:70px;
+height:40px;
+text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color: #212020;
+    border-radius: 10px;
+
+
+}
+#RlDisplay{
+    bottom:110px;
+    left:430px;
+}
+#R1Display{
+    bottom:200px;
+    right:70px;
+}
+#R2Display{
+    bottom:114px;
+    right:-10px;
+}
+#R3Display{
+    bottom:200px;
+    right:20px;
 }
