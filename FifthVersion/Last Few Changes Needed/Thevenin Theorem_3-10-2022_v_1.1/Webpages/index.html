@@ -29,13 +29,17 @@
                 <p>Instructions</p>
 
                 <ul class="steps">
-                    <li id="s1">Set the values of resistances R1, R2, R3, R_load and voltage by adjusting the sliders on left</li>
+                    <li id="s1">Set the values of resistances R1, R2, R3, R_load and voltage by adjusting the sliders on
+                        left</li>
                     <li id="s2">Make connections and check them by clicking 'CHECK' button</li>
-                        <ul>
-                            <li>To measure R_th, short circuit the terminals for power-supply, and connect the circuit to multimeter, and check connections.</li>
-                            <li>Now measure V_th connect cirucit to power-supply and Voltmeter then and check you connections.</li>
-                            <li>Connect power-supply to circuit, then connect load resistance and Ammeter in series to the two terminals of cirucit.</li>
-                        </ul>
+                    <ul>
+                        <li>To measure R_th, short circuit the terminals for power-supply, and connect the circuit to
+                            multimeter, and check connections.</li>
+                        <li>Now measure V_th connect cirucit to power-supply and Voltmeter then and check you
+                            connections.</li>
+                        <li>Connect power-supply to circuit, then connect load resistance and Ammeter in series to the
+                            two terminals of cirucit.</li>
+                    </ul>
                     <li id="s3">Click the 'ADD' button to add observations to the table.</li>
                     <li id="s4">Click the 'CALCULATE' button to verify the reslts.</li>
                     <li id="s5">Repeat the above process with different values of resistances.</li>
@@ -69,17 +73,17 @@
                 <!--Row 2 Col 1 Row1-->
 
                 <div class="formulas">
-                   <p>SLIDERS</p>
+                    <p>SLIDERS</p>
 
-                   <input type="range" min="100" max="300" step="100" value="100" id="Rls">
-                   <label for="Rls">Rl</label>
+                    <input type="range" min="100" max="300" step="100" value="100" id="Rls">
+                    <label for="Rls">Rl</label>
 
-                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R1">
-                   <label for="R1">R1</label>
-                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R2">
-                   <label for ="R2">R2</label>
-                   <input type="range" min="0.1" max="10" step="1" value="0.1" id="R3">
-                   <label for="R3">R3</label>
+                    <input type="range" min="0.1" max="10" step="1" value="0.1" id="R1">
+                    <label for="R1">R1</label>
+                    <input type="range" min="0.1" max="10" step="1" value="0.1" id="R2">
+                    <label for="R2">R2</label>
+                    <input type="range" min="0.1" max="10" step="1" value="0.1" id="R3">
+                    <label for="R3">R3</label>
                 </div>
 
                 <!--Row 2 Col 1 Row2-->
@@ -113,63 +117,63 @@
                     <div class="c-diag">
 
 
-                        <img src="../Assets/V1.png" id = "V"height = "215" width = "215" alt="">
-                        <img src="../Assets/Pointer.png" height = "13" width = "56" id = "P_V" alt="">
+                        <img src="../Assets/V1.png" id="V" height="215" width="215" alt="">
+                        <img src="../Assets/Pointer.png" height="13" width="56" id="P_V" alt="">
 
-                        <img src="../Assets/A1.png" id = "A" height = "215" width = "215" alt="">
-                    <img src="../Assets/Pointer.png" height = "13" width = "56" id = "P_A" alt="">
+                        <img src="../Assets/A1.png" id="A" height="215" width="215" alt="">
+                        <img src="../Assets/Pointer.png" height="13" width="56" id="P_A" alt="">
 
-                    <img src="../Assets/multimeter_default.png" id = "M" height = "230" width = "152" alt="">
-                    <img src="../Assets/Multimeter pointer.png" id = "P_M"height = "230" width = "152" id = "P_A" alt="">
+                        <img src="../Assets/multimeter_default.png" id="M" height="230" width="152" alt="">
+                        <img src="../Assets/Multimeter pointer.png" id="P_M" height="230" width="152" id="P_A" alt="">
 
 
                         <br>
 
-                    <img src="../Assets/current_src_off.png" alt="" id = "power" height = "190" width = "316" >
+                        <img src="../Assets/current_src_off.png" alt="" id="power" height="190" width="316">
 
-                    <img src="../Assets/THEVENIN.png" id = "circuit_diagram" alt="" height = "430" width = "550" >
-
-
-
-                    <div class="nodes">
-
-                        <div class="positive">
-
-
-                            <button id="p_v"></button>
-                            <button id="n_v"></button>
-                            <button id="p_a"></button>
-                            <button id="n_a"></button>
+                        <img src="../Assets/THEVENIN.png" id="circuit_diagram" alt="" height="430" width="550">
 
 
 
-                            <button id="p_power"></button>
-                            <button id="n_power"></button>
-                            <button id="on_power"></button>
+                        <div class="nodes">
 
-                            <button id="c_p_power1"></button>
-                            <button id="c_n_power1"></button>
+                            <div class="positive">
 
-                            <button id="c_ul"></button>
-                            <button id="c_ur"></button>
-                            <button id="c_ll"></button>
-                            <button id="c_lr"></button>
 
-                            <button id="p_mul"></button>
-                            <button id="n_mul"></button>
+                                <button id="p_v"></button>
+                                <button id="n_v"></button>
+                                <button id="p_a"></button>
+                                <button id="n_a"></button>
 
 
 
-                            <input type="text" id="PSDisplay" value="0 V">
-                            <input type="text" id="MMDisplay" value="0">
+                                <button id="p_power"></button>
+                                <button id="n_power"></button>
+                                <button id="on_power"></button>
 
-                            <input type="text" id="RlDisplay" value="100">
-                            <input type="text" id="R1Display" value="0.1">
-                            <input type="text" id="R2Display" value="0.1">
-                            <input type="text" id="R3Display" value="0.1">
+                                <button id="c_p_power1"></button>
+                                <button id="c_n_power1"></button>
+
+                                <button id="c_ul"></button>
+                                <button id="c_ur"></button>
+                                <button id="c_ll"></button>
+                                <button id="c_lr"></button>
+
+                                <button id="p_mul"></button>
+                                <button id="n_mul"></button>
+
+
+
+                                <input type="text" id="PSDisplay" value="0 V">
+                                <input type="text" id="MMDisplay" value="0">
+
+                                <input type="text" id="RlDisplay" value="100">
+                                <input type="text" id="R1Display" value="0.1">
+                                <input type="text" id="R2Display" value="0.1">
+                                <input type="text" id="R3Display" value="0.1">
+                            </div>
+
                         </div>
-
-                    </div>
 
 
                     </div>
@@ -183,39 +187,38 @@
                 </div>
 
 
-                </div>
-                <!--Row 2 Col 2-->
-
-
             </div>
+            <!--Row 2 Col 2-->
+
 
         </div>
 
-        <div class="clear"></div>
 
 
-        <div class="r3">
-            <div class="calculation">
-                <p>CALCULATIONS</p>
-                <img src="../Assets/Thevenin calculations.png" id = "calculation_png" height = "400" width = "700"lt="">
-                <input type="text" id="VthC">
-                <input type="text" id="RthC">
-                <input type="text" id="RlC">
-                <input type="text" id="numerator">
-                <input type="text" id="denominator1">
-                <input type="text" id="denominator2">
-                <input type="text" id="IlC">
-                <input type="text" id="IlC_calc">
-                <input type="text" id="IlC_obsv">
+    <div class="clear"></div>
 
-            </div>
-            <div class="calc_output"></div>
+
+    <div class="r3">
+        <div class="calculation">
+            <p>CALCULATIONS</p>
+            <img src="../Assets/Thevenin calculations.png" id="calculation_png" height="400" width="700" lt="">
+            <input type="text" id="VthC">
+            <input type="text" id="RthC">
+            <input type="text" id="RlC">
+            <input type="text" id="numerator">
+            <input type="text" id="denominator1">
+            <input type="text" id="denominator2">
+            <input type="text" id="IlC">
+            <input type="text" id="IlC_calc">
+            <input type="text" id="IlC_obsv">
 
         </div>
 
     </div>
 
+    </div>
 
+</div>
 </body>
 <script src="../Function/function.js"></script>
 

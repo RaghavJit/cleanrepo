@@ -113,15 +113,8 @@ body {
     margin-bottom: 0px;
 }
 
-.r3c2 {
-    float: left;
-    background-color: rgb(35, 35, 35);
-    width: 870px;
-    height: 250px;
-    border-radius: 10px;
-    margin: 0px 30px;
 
-}
+
 
 /*Text Edits Default*/
 .heading p {
@@ -643,7 +636,7 @@ img {
     margin-top: -15px;
 }
 
-.calculation input {
+.calculation input{
     width: 50px;
     font-family: 'Foco Trial', sans-serif;
     position: relative;
