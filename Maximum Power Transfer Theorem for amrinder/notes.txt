@@ -1,0 +1,10 @@
+to calculate Ammeter reading:
+
+A = PowerSupplyValue / (R1 + Rl)
+
+to calculate Voltmeter reading:
+
+V = A * Rl
+
+
+Power Transfered = V * A
