@@ -85,12 +85,14 @@
                 <div class="formulas">
                    <p>SLIDERS</p>
 
-                   <input type="range" min="0.1" step="0.1" max="10" id="R1" value="0.1">
-                   <input type="range" min="0.1" step="0.1" max="10" id="R2" value="0.1">
-                   <input type="range" min="0.1" step="0.1" max="10" id="R3" value="0.1">
+                   <input type="range" min="0.1" step="0.1" max="10" id="R1" name = "R1"value="0.1">
+                   <label for="R1">R1</label>
 
-                   <input type="range" min="0" step="0.1" max="10" id="P1" value="0">
-                   <input type="range" min="0" step="0.1" max="10" id="P2" value="0">
+                   <input type="range" min="0.1" step="0.1" max="10" id="R2"name = "R2" value="0.1">
+                   <label for="R2">R2</label>
+                   <input type="range" min="0.1" step="0.1" max="10" id="R3" name = "R3"value="0.1">
+                   <label for="R3">R3</label>
+
                 </div>
 
 
@@ -187,17 +189,25 @@
 
                         </div>
 
+
+                        <div class="slider_values">
+                            <input type="range" min="0" step="0.1" max="10" id="P1" value="0">
+                            <input type="range" min="0" step="0.1" max="10" id="P2" value="0">
+                        </div>
+
+
                     </div>
 
-                    <input type="range" min="0" max="100" id="variacSlider">
+
+
 
 
                     </div>
 
 
                 </div>
-                <div class="circuit_buttons"></div>
-                <div class="slider_values"></div>
+
+
                 <!--Row 2 Col 2-->
 
 
@@ -232,8 +242,7 @@
                 <input type="text" id="R2_cv">
                 <input type="text" id="R3_cv">
 
-                <input type="text" id="varif">
-            </div>
+                            </div>
             <div class="calc_output"></div>
 
         </div>
