@@ -197,7 +197,7 @@ instance.bind("ready", function () {
         connectionsDetachable: true,
         maxConnections: 1,
         connector: ["StateMachine", {curviness: -20}]
-    })    
+    })
 
     instance.addEndpoint([n_a], {
         endpoint: "Dot",
@@ -285,19 +285,19 @@ up.onclick = function GoUp() {
         case -1:
             index = 1;
         case 3:
-            loadImg.src = '../Assets/CFL_Off.png';
+            loadImg.src = '../Assets/Loads/cfl off.jpeg';
             index = 0;
             break;
         case 0:
-            loadImg.src = '../Assets/Lamp_Off.png';
+            loadImg.src = '../Assets/Loads/lamp off.jpeg';
             index = 1;
             break;
         case 1:
-            loadImg.src = '../Assets/Led_Off.png';
+            loadImg.src = '../Assets/Loads/led off.jpeg';
             index = 2;
             break;
         case 2:
-            loadImg.src = '../Assets/tubelight_Off.png';
+            loadImg.src = '../Assets/Loads/tubelight off.jpeg';
             index = 3;
             break;
     }

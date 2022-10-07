@@ -76,10 +76,11 @@
 
                 <div class="formulas">
                     <p>FORMULAS</p>
-                    <formula-text>Power Factor = True Power/Apparent Power
-                                        = cos(Phase angle)
+                    <formula-text>Power Factor <BR> = True Power/Apparent Power
+                        <BR>
+                          = cos(Phase angle)
                       </formula-text>
-                    <input type="range" min="0" max="230" id="variacSlider" value="0" disabled="true">
+
                 </div>
 
                 <!--Row 2 Col 1 Row2-->
@@ -133,8 +134,12 @@
 
                         <div class="loads" >
                             <input type="button" id="up" value = "Change Load">
-                            <img src="../Assets/NoLoad.png" id="loadImg" height="150" width="300" alt="">
+                            <img src="../Assets/Loads/NoLoad.png" id="loadImg" height="150" width="300" alt="">
+
+
                         </div>
+
+
                         <div class="nodes">
 
                             <div class="positive">
@@ -160,8 +165,17 @@
                                 <button id="var_on"></button>
                                 <button id="p_l"></button>
                                 <button id="n_l"></button>
+
+
+                                <button id = "starter_l"></button>
+                                <button id = "starter_r"></button>
+                                <button id = "choke_l"></button>
+                                <button id = "choke_r"></button>
                             </div>
 
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="230" id="variacSlider" value="0" disabled="true">
                         </div>
 
                     </div>

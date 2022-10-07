@@ -129,7 +129,7 @@ body{
     font-family: 'Zacbel X', sans-serif;
     color:rgb(31, 31, 31);
 }
-.formulas p{
+.formulas {
     text-align: center;
     font-size: 20px;
     font-family: 'Zacbel X', sans-serif;
@@ -384,9 +384,11 @@ body{
     background-color: white;
     border: 2px solid black;
     border-radius: 10px;
+    overflow: hidden;
 
 
 }
+
 .loads input{
 
     text-align: center;
@@ -605,19 +607,51 @@ opacity: 0;
     float:right;
     height: 12px;
     width: 12px;
-    bottom:115px;
-    right:128px;
+    bottom:295px;
+    right:148px;
+
 }
 #n_l{
     position: relative;
     float:right;
     height: 12px;
     width: 12px;
-    bottom:115px;
+    bottom:295px;
     right:91px;
 }
 
+#starter_l{
 
+    position: relative;
+    bottom:190px;
+    left:189px;
+    height: 10px;
+    width:10px;
+}
+#starter_r{
+
+    position: relative;
+    bottom:190px;
+    left:189px;
+    height: 10px;
+    width:10px;
+}
+#choke_l{
+
+    position: relative;
+    bottom:190px;
+    left:255px;
+    height: 10px;
+    width:10px;
+}
+#choke_r{
+
+    position: relative;
+    bottom:190px;
+    left:275px;
+    height: 10px;
+    width:10px;
+}
 
 
 
@@ -762,5 +796,55 @@ user-select: none;
 #powerfactor{
     bottom:52px;
     left:235px;
+
+}
+
+
+/*Variac Slider*/
+
+#variacSlider {
+    z-index: +2;
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 100px;
+    bottom:500px;
+    left:70px;
+
+    background-color: #111111;
+    border-radius: 2px;
+
+
+
+}
+
+#variacSlider::-webkit-slider-thumb {
+    z-index: +2;
+    appearance: none;
+    height: 40px;
+    border-radius: 2px;
+    width: 10px;
+    cursor: grab;
+    background-color: #aa0a0a;
+
+
+}
+
+#variacSlider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+#variacSlider:disabled {
+    z-index: +2;
+    background-color: #808080;
+    cursor: default;
+
+
+}
+
+#variacSlider:disabled::-webkit-slider-thumb {
+
+    background-color: #808080;
+    cursor: default;
 
 }
