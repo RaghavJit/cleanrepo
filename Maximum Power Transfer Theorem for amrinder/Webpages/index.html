@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>powerfactor</title>
     <link rel="stylesheet" href="../Style/style.css">
+    <link rel="stylesheet" href="../Style/disabledrag.css">
     <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@firestitch/jsplumb@2.12.0/dist/js/jsplumb.min.js"></script>
+    <!-- <script src=https://bernii.github.io/gauge.js/dist/gauge.min.js></script> -->
     <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
 
 </head>
@@ -69,9 +72,11 @@
 
                 <div class="loads">
                     <p>SLIDERS</p>
-                    <input type="range" id="Rl" value="100", step="100", min="100", max="300">
-                    <input type="range" name="R1" id="R1" value="0" min="0.1" max="10" step="0.1">
-                    <input type="range" name="PSslider" id="PSslider" min="0" max="10" step="0.1" value="0">
+                    <center>
+                        R1<input type="range" id="Rl" value="100", step="100", min="100", max="300"><br>
+                        RL<input type="range" name="R1" id="R1" value="0" min="0.1" max="10" step="0.1"><br>
+                        V<input type="range" name="PSslider" id="PSslider" min="0" max="10" step="0.1" value="0"><br>
+                    </center>
                 </div>
                 <!--Row 2 Col 1 Row2-->
                 <div class="o_table">
@@ -113,6 +118,7 @@
                         <img src="../Assets/Multimeter pointer.png" alt=""height = "240" width = "150" id = "P_M">
                         <img src="../Assets/PowerSupplyOff.png" height ="180" id="power" alt="">
                         <img src="../Assets/Maximum Power Transfer 1.png" height = "350" width = " 500" id='cdiag'alt="">
+                        
                     </div>
                     <div class="nodes">
 
