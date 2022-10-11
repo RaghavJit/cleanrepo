@@ -33,6 +33,8 @@ Required arguments:
 >> Note: to get the DOM object use:
 PS = document.getElementById("ID_OF_SLIDER")
 
+Returns: Ammeter Reading in Float.
+
 - calcVoltmeter(PS,R1,RL) 
 
 This function calculates the Voltmeter reading.
@@ -40,6 +42,7 @@ This function calculates the Voltmeter reading.
 Required arguments:
 Same as calcAmmeter
 
+Returns: Ammeter Reading in Float.
 
 
 - updateAmmeter(AMMETER_VAR) 
