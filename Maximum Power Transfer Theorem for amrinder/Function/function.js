@@ -25,16 +25,16 @@ var toggle = false
 var validConn = [POWER_POSITIVE, CIRCUIT_POWER_POSITIVE, POWER_NEGATIVE, CIRCUIT_POWER_NEGATIVE]
 var arrChk = []
 var arrChkStore = []
-var CONNECTIONS_BOOL = true;
+var CONNECTIONS_CHECK_BOOL = true;
 var L = 200;
 
 var POWER_SUPPLY= document.getElementById("PSslider")
-var R1_VALUE = document.getElementById("R1")
-var RL_VALUE = document.getElementById("RL")
+var R1_SLIDER = document.getElementById("R1")
+var RL_SLIDER = document.getElementById("RL")
 var TABLE = document.getElementById("valTable")
 var TABLE_COUNT = 0
 var ADD_BUTTON = document.getElementById("add")
-
+ADD_BUTTON.disabled = true
 const instance = jsPlumb.getInstance({
     container: cont
 });
@@ -42,35 +42,45 @@ const instance = jsPlumb.getInstance({
 
 //ON-CLICK / ON-INPUT TRIGGERS BELOW---------------------------------------------
 CHECK_BUTTON.onclick = function() {
-    window.scrollTo(10, document.body.scrollHeight);
-//disableConnections();
+    //window.scrollTo(10, document.body.scrollHeight);
+
+    if (CONNECTIONS_CHECK_BOOL == true) {
+        alert("Right Connections")
+        disableConnections()
+        R1_SLIDER.disabled = true
+        POWER_SUPPLY.disabled = true
+        ADD_BUTTON.disabled = false
+    }
+    else {
+        alert("Wrong Connections, Please read instructions and re-do the connections.")
+    }
+
 }
 
 POWER_SUPPLY.oninput = function () {
     document.getElementById("VOLTAGE_VALUE").innerHTML = this.value;
-    updateAmmeter(calcAmmeter(this,R1_VALUE,RL_VALUE))
-    updateVoltmeter(calcVoltmeter(this,R1_VALUE,RL_VALUE))
+    updateAmmeter(calcAmmeter(this,R1_SLIDER,RL_SLIDER))
+    updateVoltmeter(calcVoltmeter(this,R1_SLIDER,RL_SLIDER))
 }
-R1_VALUE.oninput = function () {
+R1_SLIDER.oninput = function () {
     document.getElementById("R1_VALUE").innerHTML = this.value;
-    updateAmmeter(calcAmmeter(POWER_SUPPLY,this,RL_VALUE))
-    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,this,RL_VALUE))
+    updateAmmeter(calcAmmeter(POWER_SUPPLY,this,RL_SLIDER))
+    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,this,RL_SLIDER))
 }
-RL_VALUE.oninput = function () {
+RL_SLIDER.oninput = function () {
     document.getElementById("RL_VALUE").innerHTML = this.value;
-    updateAmmeter(calcAmmeter(POWER_SUPPLY,R1_VALUE,this))
-    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,R1_VALUE,this))
+    updateAmmeter(calcAmmeter(POWER_SUPPLY,R1_SLIDER,this))
+    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,R1_SLIDER,this))
 }
 ADD_BUTTON.onclick = function () {
     addValuesToTable();
 }
-
 //ON-CLICK / ON-INPUT TRIGGERS END -------------------------------------------------
 
 instance.bind("ready", function() {
 createConnections();
 });
-
+//-------------------------------X---FUNCTIONS BELOW---X---------------------------------- 
 //function to check connections NOTE: IT DOES NOT WORK AT ALL. TODO-RAGHAV
 function checkConnections() {
     alert("Running connections check")
@@ -137,6 +147,7 @@ function checkConnections() {
         // window.location.reload()
     }
 }
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 //function to make connections
 function createConnections () {
@@ -306,13 +317,13 @@ function addValuesToTable() {
     var AMMETER = row.insertCell(5)
     var POWER = row.insertCell(6)
     TABLE_COUNT = TABLE_COUNT + 1
-    var AMMETER_READING = calcAmmeter(POWER_SUPPLY,R1_VALUE,RL_VALUE)
-    var VOLTMETER_READING = calcVoltmeter(POWER_SUPPLY,R1_VALUE,RL_VALUE)
+    var AMMETER_READING = calcAmmeter(POWER_SUPPLY,R1_SLIDER,RL_SLIDER)
+    var VOLTMETER_READING = calcVoltmeter(POWER_SUPPLY,R1_SLIDER,RL_SLIDER)
 
     S_NO.innerHTML = parseFloat(TABLE_COUNT)
     POWER_VALUE.innerHTML = parseFloat(POWER_SUPPLY.value).toFixed(2)
-    R1.innerHTML = parseFloat(R1_VALUE.value).toFixed(2)
-    LOAD_RESISTANCE.innerHTML = parseFloat(RL_VALUE.value).toFixed(2)
+    R1.innerHTML = parseFloat(R1_SLIDER.value).toFixed(2)
+    LOAD_RESISTANCE.innerHTML = parseFloat(RL_SLIDER.value).toFixed(2)
     VOLTAGE.innerHTML = parseFloat(VOLTMETER_READING).toFixed(2)
     AMMETER.innerHTML = parseFloat(AMMETER_READING).toFixed(2)
     POWER.innerHTML = parseFloat(VOLTMETER_READING * AMMETER_READING).toFixed(2)
@@ -326,9 +337,6 @@ function calcAmmeter(PS,R1,RL) {
 function calcVoltmeter(PS,R1,RL) {
 return calcAmmeter(PS,R1,RL) * parseFloat(R1.value)
 }
-
-
-
 
 function updateAmmeter(AMMETER_VAR) {
     //TODO-RAGHAV
