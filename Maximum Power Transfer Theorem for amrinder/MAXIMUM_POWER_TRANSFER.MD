@@ -2,7 +2,7 @@
 
 ## Here are all the functions used in Maximum Power Transfer experiment:
 ### These functions require no arguments
-- createConnections( ) ->
+- createConnections( )
 
 This function is used to create connections using jsPlumb
 
@@ -24,10 +24,13 @@ This function adds values to the table.
 
 This function calculates the Ammeter reading.
 Required arguments:
->> PS - DOM Object of Power Supply Slider.
-    R1 - DOM Object of R1 Slider  
-    RL - DOM Object of RL Slider
-Note: to get the DOM object use:
+> PS - DOM Object of Power Supply Slider
+
+>    R1 - DOM Object of R1 Slider  
+
+>    RL - DOM Object of RL Slider
+
+>> Note: to get the DOM object use:
 PS = document.getElementById("ID_OF_SLIDER")
 
 - calcVoltmeter(PS,R1,RL) 
