@@ -1,7 +1,7 @@
 # Maximum Power Transfer Function documentation
 
-## Here are all the functions used in Maximum Power Transfer experiment:
-### These functions require no arguments
+ Here are all the functions used in Maximum Power Transfer experiment:
+## These functions require no arguments
 - createConnections( )
 
 This function is used to create connections using jsPlumb
@@ -18,7 +18,7 @@ This function is used to prevent the user from changing the connections.
 
 This function adds values to the table.
 
-### Functions which require arguments
+## These functions require arguments
 
 - calcAmmeter(PS,R1,RL) 
 
