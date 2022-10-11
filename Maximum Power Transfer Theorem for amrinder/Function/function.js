@@ -1,7 +1,7 @@
 var cont = document.getElementById("connections_buttons")
 var CHECK_BUTTON = document.getElementById("check")
-var VOLTAGE_POSITIVE = document.getElementById("p_v")
-var VOLTAGE_NEGATIVE = document.getElementById("n_v")
+var VOLTMETER_POSITIVE = document.getElementById("p_v")
+var VOLTMETER_NEGATIVE = document.getElementById("n_v")
 var AMMETER_POSITIVE = document.getElementById("p_a")
 var AMMETER_NEGATIVE = document.getElementById("n_a")
 var MULTIMETER_POSITIVE = document.getElementById("p_m") 
@@ -13,11 +13,14 @@ var CIRCUIT_POWER_POSITIVE = document.getElementById("c_p_p")
 var CIRCUIT_POWER_NEGATIVE = document.getElementById("c_p_n") 
 var CIRCUIT_AMMETER_POSITIVE = document.getElementById("c_a_p") 
 var CIRCUIT_AMMETER_NEGATIVE = document.getElementById("c_a_n")  
-var CIRCUIT_VOLTAGE_POSITIVE = document.getElementById("c_v_p") 
-var CIRCUIT_VOLTAGE_NEGATIVE = document.getElementById("c_v_n")   
+var CIRCUIT_VOLTMETER_POSITIVE = document.getElementById("c_v_p") 
+var CIRCUIT_VOLTMETER_NEGATIVE = document.getElementById("c_v_n")   
 var MCB_SWITCH = document.getElementById("mcb_switch")
 var VOLTAGE_POINTER = document.getElementById("P_V")
 var AMMETER_POINTER = document.getElementById("P_A")
+var CALCULATE_BUTTON = document.getElementById("calculate")
+var RESET_BUTTON = document.getElementById("reset")
+var PRINT_BUTTON = document.getElementById("print")
 var toggle = false
 var validConn = [POWER_POSITIVE, CIRCUIT_POWER_POSITIVE, POWER_NEGATIVE, CIRCUIT_POWER_NEGATIVE]
 var arrChk = []
@@ -148,7 +151,7 @@ function createConnections () {
         }
     });
 
-    instance.addEndpoint([ VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], {
+    instance.addEndpoint([MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -158,6 +161,19 @@ function createConnections () {
         connectionsDetachable: true,
         maxConnections: 1,
         connector: ["StateMachine", {curviness: -100}]
+        
+    });
+
+    instance.addEndpoint([VOLTMETER_POSITIVE], {
+        endpoint: "Dot",
+        anchor: ["Center"],
+        isSource: true,
+        isTarget: true,
+        paintStyle: { fill: "rgb(97,106,229)", strokeWidth: 2.5 },
+        connectionType: "positive",
+        connectionsDetachable: true,
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: 100}]
         
     });
 
@@ -188,7 +204,7 @@ function createConnections () {
     });
     
 
-    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTAGE_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
+    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTMETER_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -211,7 +227,7 @@ function createConnections () {
         connector: ["StateMachine", {curviness: +20}]
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
+    instance.addEndpoint([CIRCUIT_VOLTMETER_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -222,7 +238,7 @@ function createConnections () {
         maxConnections: 2
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_NEGATIVE], {
+    instance.addEndpoint([CIRCUIT_VOLTMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -235,7 +251,7 @@ function createConnections () {
 }
 //function to disable connections
 function disableConnections() {
-    instance.addEndpoint([POWER_POSITIVE, AMMETER_POSITIVE, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], { //POWER_POSITIVE, AMMETER_POSITIVEP, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTAGE_POSITIVE
+    instance.addEndpoint([POWER_POSITIVE, AMMETER_POSITIVE, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], { //POWER_POSITIVE, AMMETER_POSITIVEP, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTMETER_POSITIVE
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -246,7 +262,7 @@ function disableConnections() {
         maxConnections: 1
     });
 
-    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTAGE_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
+    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTMETER_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -257,7 +273,7 @@ function disableConnections() {
         maxConnections: 1
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
+    instance.addEndpoint([CIRCUIT_VOLTMETER_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -268,7 +284,7 @@ function disableConnections() {
         maxConnections: 2
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_NEGATIVE], {
+    instance.addEndpoint([CIRCUIT_VOLTMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -327,6 +343,6 @@ function updateVoltmeter(VOLTMETER_VAR) {
 window.scrollTo(10, document.body.scrollHeight);
         connector: ["StateMachine", {curviness: -50}]
 
-//POWER_POSITIVE, AMMETER_POSITIVE, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTAGE_POSITIVE
+//POWER_POSITIVE, AMMETER_POSITIVE, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTMETER_POSITIVE
 
 */

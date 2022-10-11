@@ -17,3 +17,7 @@ Power Transfered = V * A
 rl=0.1-100
 r1=0.1-10
 v=0-10
+
+V = IR
+
+R = V / I

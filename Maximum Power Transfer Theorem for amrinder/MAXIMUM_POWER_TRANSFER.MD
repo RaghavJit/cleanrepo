@@ -69,3 +69,8 @@ Similar to updateAmmeter( ) except this is for Voltmeter.
 TODO-RAGHAV
 
 <span style="color: red;">IMPORTANT: EVERYTHING MARKED: TODO-RAGHAV IS INCOMPLETE. PLEASE COMPLETE IT</span>
+
+
+# DOM Variable Names Visualised
+
+![t](https://i.imgur.com/b7wfoUU.png Dom Variable Names)
