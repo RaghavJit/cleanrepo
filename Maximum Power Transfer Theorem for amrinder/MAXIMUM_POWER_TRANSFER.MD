@@ -55,4 +55,4 @@ TODO-RAGHAV
 Similar to updateAmmeter( ) except this is for Voltmeter.
 TODO-RAGHAV
 
-<span style="color:red">IMPORTANT: EVERYTHING MARKED: TODO-RAGHAV IS INCOMPLETE. PLEASE COMPLETE IT</span>.
+<span style="color: red;">IMPORTANT: EVERYTHING MARKED: TODO-RAGHAV IS INCOMPLETE. PLEASE COMPLETE IT</span>
