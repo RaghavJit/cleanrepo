@@ -6,21 +6,21 @@
 
 This function is used to create connections using jsPlumb
 
-- checkConnections( ) -> 
+- checkConnections( ) 
 
 This function is used to check if the connections are correct. (INCOMPLETE, FOR RAGHAV)
 
-- disableConnections( ) -> 
+- disableConnections( ) 
 
 This function is used to prevent the user from changing the connections.
 
-- addValuesToTable( ) -> 
+- addValuesToTable( ) 
 
 This function adds values to the table.
 
 ### Functions which require arguments
 
-- calcAmmeter(PS,R1,RL) -> 
+- calcAmmeter(PS,R1,RL) 
 
 This function calculates the Ammeter reading.
 Required arguments:
@@ -30,7 +30,7 @@ Required arguments:
 Note: to get the DOM object use:
 PS = document.getElementById("ID_OF_SLIDER")
 
-- calcVoltmeter(PS,R1,RL) -> 
+- calcVoltmeter(PS,R1,RL) 
 
 This function calculates the Voltmeter reading.
 
@@ -39,12 +39,12 @@ Same as calcAmmeter
 
 
 
-- updateAmmeter(AMMETER_VAR) -> 
+- updateAmmeter(AMMETER_VAR) 
 
 This function updates the angle in Ammeter. It is passed the value of current (from calcAmmeter( ) function)
 TODO-RAGHAV
 
-- updateVoltmeter(VOLTMETER_VAR) -> 
+- updateVoltmeter(VOLTMETER_VAR) 
 
 Similar to updateAmmeter( ) except this is for Voltmeter.
 TODO-RAGHAV
