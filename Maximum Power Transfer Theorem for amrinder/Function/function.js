@@ -1,40 +1,87 @@
 var cont = document.getElementById("connections_buttons")
 var CHECK_BUTTON = document.getElementById("check")
-var VOLTAGE_POSITIVE = document.getElementById("p_v")
-var VOLTAGE_NEGATIVE = document.getElementById("n_v")
+var VOLTMETER_POSITIVE = document.getElementById("p_v")
+var VOLTMETER_NEGATIVE = document.getElementById("n_v")
 var AMMETER_POSITIVE = document.getElementById("p_a")
 var AMMETER_NEGATIVE = document.getElementById("n_a")
 var MULTIMETER_POSITIVE = document.getElementById("p_m") 
 var MULTIMETER_NEGATIVE = document.getElementById("n_m") 
-var POWER_POSITIVE = document.getElementById("p_p")
-var POWER_NEGATIVE = document.getElementById("n_p")
+var POWER_POSITIVE = document.getElementById("n_p")
+var POWER_NEGATIVE = document.getElementById("p_p")
 var POWER_ON = document.getElementById("p_on")
 var CIRCUIT_POWER_POSITIVE = document.getElementById("c_p_p") 
 var CIRCUIT_POWER_NEGATIVE = document.getElementById("c_p_n") 
 var CIRCUIT_AMMETER_POSITIVE = document.getElementById("c_a_p") 
 var CIRCUIT_AMMETER_NEGATIVE = document.getElementById("c_a_n")  
-var CIRCUIT_VOLTAGE_POSITIVE = document.getElementById("c_v_p") 
-var CIRCUIT_VOLTAGE_NEGATIVE = document.getElementById("c_v_n")   
+var CIRCUIT_VOLTMETER_POSITIVE = document.getElementById("c_v_p") 
+var CIRCUIT_VOLTMETER_NEGATIVE = document.getElementById("c_v_n")   
 var MCB_SWITCH = document.getElementById("mcb_switch")
+var VOLTAGE_POINTER = document.getElementById("P_V")
+var AMMETER_POINTER = document.getElementById("P_A")
+var CALCULATE_BUTTON = document.getElementById("calculate")
+var RESET_BUTTON = document.getElementById("reset")
+var PRINT_BUTTON = document.getElementById("print")
 var toggle = false
 var validConn = [POWER_POSITIVE, CIRCUIT_POWER_POSITIVE, POWER_NEGATIVE, CIRCUIT_POWER_NEGATIVE]
 var arrChk = []
 var arrChkStore = []
-var CONNECTIONS_BOOL = true;
+var CONNECTIONS_CHECK_BOOL = true;
 var L = 200;
+
+var POWER_SUPPLY= document.getElementById("PSslider")
+var R1_SLIDER = document.getElementById("R1")
+var RL_SLIDER = document.getElementById("RL")
+var TABLE = document.getElementById("valTable")
+var TABLE_COUNT = 0
+var ADD_BUTTON = document.getElementById("add")
+ADD_BUTTON.disabled = true
 const instance = jsPlumb.getInstance({
     container: cont
 });
 
+
+//ON-CLICK / ON-INPUT TRIGGERS BELOW---------------------------------------------
 CHECK_BUTTON.onclick = function() {
-    alert("TODO: Check connections function")
-//disableConnections();
+    //window.scrollTo(10, document.body.scrollHeight);
+
+    if (CONNECTIONS_CHECK_BOOL == true) {
+        alert("Right Connections")
+        disableConnections()
+        R1_SLIDER.disabled = true
+        POWER_SUPPLY.disabled = true
+        ADD_BUTTON.disabled = false
+    }
+    else {
+        alert("Wrong Connections, Please read instructions and re-do the connections.")
+    }
+
 }
+
+POWER_SUPPLY.oninput = function () {
+    document.getElementById("VOLTAGE_VALUE").innerHTML = this.value;
+    updateAmmeter(calcAmmeter(this,R1_SLIDER,RL_SLIDER))
+    updateVoltmeter(calcVoltmeter(this,R1_SLIDER,RL_SLIDER))
+}
+R1_SLIDER.oninput = function () {
+    document.getElementById("R1_VALUE").innerHTML = this.value;
+    updateAmmeter(calcAmmeter(POWER_SUPPLY,this,RL_SLIDER))
+    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,this,RL_SLIDER))
+}
+RL_SLIDER.oninput = function () {
+    document.getElementById("RL_VALUE").innerHTML = this.value;
+    updateAmmeter(calcAmmeter(POWER_SUPPLY,R1_SLIDER,this))
+    updateVoltmeter(calcVoltmeter(POWER_SUPPLY,R1_SLIDER,this))
+}
+ADD_BUTTON.onclick = function () {
+    addValuesToTable();
+}
+//ON-CLICK / ON-INPUT TRIGGERS END -------------------------------------------------
+
 instance.bind("ready", function() {
 createConnections();
 });
-
-//function to check connections NOTE: IT DOES NOT WORK AT ALL. FOR RAGHAV
+//-------------------------------X---FUNCTIONS BELOW---X---------------------------------- 
+//function to check connections NOTE: IT DOES NOT WORK AT ALL. TODO-RAGHAV
 function checkConnections() {
     alert("Running connections check")
     for (let i = 0; i < validConn.length + 1; i++) {
@@ -100,6 +147,7 @@ function checkConnections() {
         // window.location.reload()
     }
 }
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 //function to make connections
 function createConnections () {
@@ -114,7 +162,7 @@ function createConnections () {
         }
     });
 
-    instance.addEndpoint([POWER_POSITIVE, AMMETER_POSITIVE, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], {
+    instance.addEndpoint([MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -122,10 +170,52 @@ function createConnections () {
         paintStyle: { fill: "rgb(97,106,229)", strokeWidth: 2.5 },
         connectionType: "positive",
         connectionsDetachable: true,
-        maxConnections: 1
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: -100}]
+        
     });
 
-    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTAGE_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
+    instance.addEndpoint([VOLTMETER_POSITIVE], {
+        endpoint: "Dot",
+        anchor: ["Center"],
+        isSource: true,
+        isTarget: true,
+        paintStyle: { fill: "rgb(97,106,229)", strokeWidth: 2.5 },
+        connectionType: "positive",
+        connectionsDetachable: true,
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: 100}]
+        
+    });
+
+    instance.addEndpoint([AMMETER_POSITIVE], {
+        endpoint: "Dot",
+        anchor: ["Center"],
+        isSource: true,
+        isTarget: true,
+        paintStyle: { fill: "rgb(97,106,229)", strokeWidth: 2.5 },
+        connectionType: "positive",
+        connectionsDetachable: true,
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: -20}]
+        
+    });
+
+    instance.addEndpoint([POWER_POSITIVE], {
+        endpoint: "Dot",
+        anchor: ["Center"],
+        isSource: true,
+        isTarget: true,
+        paintStyle: { fill: "rgb(97,106,229)", strokeWidth: 2.5 },
+        connectionType: "positive",
+        connectionsDetachable: true,
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: +20}]
+        
+    });
+    
+
+    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTMETER_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -136,7 +226,19 @@ function createConnections () {
         maxConnections: 1
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
+    instance.addEndpoint([AMMETER_NEGATIVE], {
+        endpoint: "Dot",
+        anchor: ["Center"],
+        isSource: true,
+        isTarget: true,
+        paintStyle: { fill: "rgb(229, 97, 97)", strokeWidth: 2.5 },
+        connectionType: "negative",
+        connectionsDetachable: true,
+        maxConnections: 1,
+        connector: ["StateMachine", {curviness: +20}]
+    });
+
+    instance.addEndpoint([CIRCUIT_VOLTMETER_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -147,7 +249,7 @@ function createConnections () {
         maxConnections: 2
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_NEGATIVE], {
+    instance.addEndpoint([CIRCUIT_VOLTMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: true,
@@ -160,7 +262,7 @@ function createConnections () {
 }
 //function to disable connections
 function disableConnections() {
-    instance.addEndpoint([POWER_POSITIVE, AMMETER_POSITIVE, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], { //POWER_POSITIVE, AMMETER_POSITIVEP, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTAGE_POSITIVE
+    instance.addEndpoint([POWER_POSITIVE, AMMETER_POSITIVE, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE], { //POWER_POSITIVE, AMMETER_POSITIVEP, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTMETER_POSITIVE
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -171,7 +273,7 @@ function disableConnections() {
         maxConnections: 1
     });
 
-    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTAGE_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
+    instance.addEndpoint([POWER_NEGATIVE, AMMETER_NEGATIVE, VOLTMETER_NEGATIVE, MULTIMETER_NEGATIVE, CIRCUIT_POWER_NEGATIVE, CIRCUIT_AMMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -182,7 +284,7 @@ function disableConnections() {
         maxConnections: 1
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
+    instance.addEndpoint([CIRCUIT_VOLTMETER_POSITIVE], { //Added 2 endpoints just for these 2 points, since only these will be having multiple connections. 
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -193,7 +295,7 @@ function disableConnections() {
         maxConnections: 2
     });
 
-    instance.addEndpoint([CIRCUIT_VOLTAGE_NEGATIVE], {
+    instance.addEndpoint([CIRCUIT_VOLTMETER_NEGATIVE], {
         endpoint: "Dot",
         anchor: ["Center"],
         isSource: false,
@@ -205,8 +307,50 @@ function disableConnections() {
     });
 }
 
+function addValuesToTable() {
+    var row = TABLE.insertRow(-1)
+    var S_NO = row.insertCell(0)
+    var POWER_VALUE = row.insertCell(1)
+    var R1 = row.insertCell(2)
+    var LOAD_RESISTANCE = row.insertCell(3)
+    var VOLTAGE = row.insertCell(4)
+    var AMMETER = row.insertCell(5)
+    var POWER = row.insertCell(6)
+    TABLE_COUNT = TABLE_COUNT + 1
+    var AMMETER_READING = calcAmmeter(POWER_SUPPLY,R1_SLIDER,RL_SLIDER)
+    var VOLTMETER_READING = calcVoltmeter(POWER_SUPPLY,R1_SLIDER,RL_SLIDER)
+
+    S_NO.innerHTML = parseFloat(TABLE_COUNT)
+    POWER_VALUE.innerHTML = parseFloat(POWER_SUPPLY.value).toFixed(2)
+    R1.innerHTML = parseFloat(R1_SLIDER.value).toFixed(2)
+    LOAD_RESISTANCE.innerHTML = parseFloat(RL_SLIDER.value).toFixed(2)
+    VOLTAGE.innerHTML = parseFloat(VOLTMETER_READING).toFixed(2)
+    AMMETER.innerHTML = parseFloat(AMMETER_READING).toFixed(2)
+    POWER.innerHTML = parseFloat(VOLTMETER_READING * AMMETER_READING).toFixed(2)
+
+}
+
+function calcAmmeter(PS,R1,RL) {
+    return parseFloat(PS.value) / (parseFloat(R1.value) + parseFloat(RL.value))
+}
+
+function calcVoltmeter(PS,R1,RL) {
+return calcAmmeter(PS,R1,RL) * parseFloat(R1.value)
+}
+
+function updateAmmeter(AMMETER_VAR) {
+    //TODO-RAGHAV
+}
+
+function updateVoltmeter(VOLTMETER_VAR) {
+    //TODO-RAGHAV
+}
+
+
 /* Useless stuff below 
 window.scrollTo(10, document.body.scrollHeight);
-//POWER_POSITIVE, AMMETER_POSITIVE, VOLTAGE_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTAGE_POSITIVE
+        connector: ["StateMachine", {curviness: -50}]
+
+//POWER_POSITIVE, AMMETER_POSITIVE, VOLTMETER_POSITIVE, AMMETER_POSITIVE, MULTIMETER_POSITIVE, CIRCUIT_POWER_POSITIVE, CIRCUIT_AMMETER_POSITIVE, CIRCUIT_VOLTMETER_POSITIVE
 
 */

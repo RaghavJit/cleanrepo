@@ -6,5 +6,18 @@ to calculate Voltmeter reading:
 
 V = A * Rl
 
+10 V = 180 deg
+1 V = 180/10 deg
+1V = 18 deg
+2 V = 18*2 deg
+x V = 18*x deg
 
 Power Transfered = V * A
+
+rl=0.1-100
+r1=0.1-10
+v=0-10
+
+V = IR
+
+R = V / I

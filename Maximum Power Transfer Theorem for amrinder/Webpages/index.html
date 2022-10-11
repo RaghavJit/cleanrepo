@@ -11,6 +11,7 @@
     <link href="http://fonts.cdnfonts.com/css/zacbel-x" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@firestitch/jsplumb@2.12.0/dist/js/jsplumb.min.js"></script>
     <!-- <script src=https://bernii.github.io/gauge.js/dist/gauge.min.js></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="http://fonts.cdnfonts.com/css/foco-trial" rel="stylesheet">
 
 </head>
@@ -73,9 +74,9 @@
                 <div class="loads">
                     <p>SLIDERS</p>
                     <center>
-                        R1<input type="range" id="Rl" value="100", step="100", min="100", max="300"><br>
-                        RL<input type="range" name="R1" id="R1" value="0" min="0.1" max="10" step="0.1"><br>
-                        V<input type="range" name="PSslider" id="PSslider" min="0" max="10" step="0.1" value="0"><br>
+                        R1<input type="range" id="R1", step="0.1", min="0.1", max="10" value="5"><div id="R1_VALUE"></div><br>
+                        RL<input type="range" name="RL" id="RL", min="0.1" max="10" step="0.1" value="5"><div id="RL_VALUE"></div><br>
+                        V<input type="range" name="PSslider" id="PSslider" min="0" max="10" step="0.1" value="5"><div id="VOLTAGE_VALUE"></div><br>
                     </center>
                 </div>
                 <!--Row 2 Col 1 Row2-->
@@ -86,12 +87,12 @@
                         <table id="valTable">
                             <tr>
                                 <th>S.No</th>
-                                <th>Variac</th>
+                                <th>Power Supply</th>
+                                <th>R1</th>
+                                <th>Load Resistance</th>
                                 <th>Voltage</th>
                                 <th>Ammeter</th>
                                 <th>Power</th>
-                                <th>R1</th>
-                                <th>Load</th>
                             </tr>
 
                         </table>
