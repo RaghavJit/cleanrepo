@@ -73,4 +73,4 @@ TODO-RAGHAV
 
 # DOM Variable Names Visualised
 
-![t](https://i.imgur.com/b7wfoUU.png Dom Variable Names)
+!["test"](https://i.imgur.com/b7wfoUU.png "All of the names are self explanatory for human understanding. Kindly use them to the fullest")
