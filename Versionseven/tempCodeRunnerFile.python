@@ -1,0 +1,17 @@
+from numpy import char
+
+
+AnswerList = ["C", "A", "C", "D"]
+encpt = []
+
+
+for i in range(len(AnswerList)):
+    encpt.append((ord(AnswerList[i])*(i+1)*(i+1)))
+
+print(encpt)
+
+def decrypt(l):
+    for i in range(len(l)):
+        print(chr(int(l[i] / ((i+1)*(i+1)))))
+        
+decrypt(encpt)
