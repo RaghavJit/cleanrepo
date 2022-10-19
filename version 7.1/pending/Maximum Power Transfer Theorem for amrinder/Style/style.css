@@ -1,0 +1,428 @@
+/*BASE STYLING GOES HERE*/
+body{
+    background-image: linear-gradient(#eaeaea,#d6d6d6);
+    background-repeat: no-repeat;
+}
+.clear{
+    float:none;
+}
+
+.container{
+
+    background-color: #606471;
+    width: 1500px;
+    height: 1350px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.heading{
+    height:60px;
+    width:1400px;
+    margin: 0 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    background-color: #eaeaea;
+    border-radius: 10px;
+
+}
+.r2{
+    float:left;
+
+    width: 1500px;
+    margin: 00px 30px;
+    border-radius: 10px;
+
+}
+
+.r2c1{
+    float:left;
+
+    width: 500px;
+    height: 300px;
+
+
+    border-radius: 10px;
+
+}
+.action-buttons{
+    background-color: #eaeaea;
+    width: 500px;
+    height: 100px;
+
+
+    border-radius: 10px;
+
+}
+.loads{
+    display: block;
+    background-color: #eaeaea;
+    width: 500px;
+    height: 195px;
+    border-radius: 10px;
+    margin:0 auto;
+
+}
+
+.r2c2{
+
+   float:left;
+    background-color: rgb(35, 35, 35);
+    width: 870px;
+    height: 600px;
+    border-radius: 10px;
+    margin: 20px 30px;
+
+}
+.r3{
+    float:left;
+
+    width: 1500px;
+    margin: 0px 30px;
+    border-radius: 10px;
+
+
+
+}
+.r2c1 .o_table{
+    float:left;
+
+    width: 500px;
+    height: 250px;
+    background-color: #eaeaea;
+    margin-top: 30px;
+    border-radius: 10px;
+
+}
+
+
+.r2c1 .o_table p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.r3c1{
+    float:left;
+    background-color: #eaeaea;
+    width: 1400px;
+    height: 550px;
+    border-radius: 10px;
+
+
+}
+
+/*Text Edits Default*/
+.heading p{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.action-buttons p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.loads p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+.o_table p{
+
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color:rgb(31, 31, 31);
+}
+
+.circuit p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color: #eaeaea;
+}
+.calculation p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Zacbel X', sans-serif;
+    color: rgb(31, 31, 31);
+}
+
+
+/*Buttons CSS*/
+.action-buttons {
+    border: none;
+
+}
+
+.control-panel-buttons {
+    display: block;
+
+    height: 40px;
+    width: 500px;
+    background-color: #eaeaea;
+
+    border-radius: 10px;
+    text-align: center;
+}
+
+.control-panel-buttons button {
+    border: none;
+    height: 35px;
+    outline: none;
+    background-color: rgba(129, 129, 129, 0.313);
+
+    margin: 0px 10px;
+    border-radius: 10px;
+
+
+    text-align: center;
+    font-family: 'Foco Trial', sans-serif;
+    font-size: 20px;
+    transition: all 0.25s ease-in, border 0.001s ease-in-out;
+    cursor: pointer;
+}
+
+.control-panel-buttons button:hover {
+    background-color: #1e1e1ee8;
+    color: rgb(238, 234, 234);
+
+}
+
+.control-panel-buttons button:active {
+    background-color: #606471;
+    color: rgb(238, 234, 234);
+    border: 3px solid #6a6b6e;
+}
+/*Table Css*/
+.o_table {
+
+
+
+    border-radius: 10px;
+    width: 500px;
+    height: 380px;
+
+
+
+}
+
+.o_table table {
+    width: 500px;
+    text-align: center;
+    padding: 2px;
+
+}
+
+.o_table td {
+    border-radius: 0px;
+    border: 1px solid #1e1e1e;
+}
+
+.o_table th {
+    border-radius: 10px;
+    border: 2px solid #1e1e1e;
+}
+
+/*Assets Placement*/
+#mcb{
+    position: relative;
+    bottom:100px;
+}
+#V,#A{
+    position: relative;
+    bottom:50px;
+}
+#V{
+    left:50px;
+}
+#M{
+    position: relative;
+    bottom:20px;
+    left:70px;
+}
+#P_A{
+    position: relative;
+    bottom:140.5px;
+    right:132px;
+
+    transform-origin: 84% 50%;
+}
+#P_V{
+    position: relative;
+    bottom:140.5px;
+    right:82px;
+
+    transform-origin: 84% 50%;
+}
+#P_M{
+    position: relative;
+    right:84px;
+    bottom:20px;
+}
+#power{
+    position: relative;
+    bottom:150px;
+}
+#cdiag{
+    position: relative;
+    bottom:85px;
+
+}
+.nodes button{
+    position: relative;
+    bottom:100px;
+    width:18px;
+    height:18px;
+    border-radius: 25px;
+    background-color: #53e42b;
+    float:left;
+    cursor: pointer;
+
+}
+
+
+#p_v{
+bottom:470px;
+left:205.5px;
+}#n_v{
+bottom:470px;
+left:237.5px;
+}
+#p_a{
+bottom:470px;
+left: 349px;
+}
+#n_a{
+position:relative;
+bottom:470px;
+left:382.5px;
+}
+#p_m{
+bottom:438px;
+left: 676px;
+}
+#n_m{
+position:relative;
+bottom:418px;
+left: 658px;
+}
+#p_p{
+    bottom:222px;
+    left:6px;
+}
+#n_p{
+    bottom:222px;
+    right:48px;
+}
+#p_on{
+    bottom:296px;
+    left:59.9px;
+    height: 30px;
+    width: 30px;
+
+    opacity: 0;
+}
+#c_p_p{
+    bottom:289px;
+    left:216px;
+}
+#c_p_n{
+    bottom:229px;
+    left:197.7px;
+}
+#c_a_p{
+bottom:372.5px;
+left:389.9px;
+}
+#c_a_n{
+bottom:371px;
+left:417.3px;
+}
+#c_v_p{
+bottom:371px;
+left:493px;
+}
+#c_v_n{
+    bottom:141px;
+    left:475px;
+}
+#mcb_switch{
+    bottom:500px;
+    right:265px;
+    width:70px;
+
+    opacity: 0;
+}
+
+.instructions {
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    z-index: +2;
+    filter: drop-shadow(2px 2px 8px rgba(56, 53, 53, 0.315));
+    font-family: 'Foco Trial', sans-serif;
+    font-size: 19px;
+    padding-top: -20px;
+    overflow: visible;
+
+    transition: all 0.2s ease-in-out;
+
+    position: absolute;
+    top: 40px;
+    left: -300px;
+
+    height: 650px;
+    width: 300px;
+}
+
+.instructions:hover {
+    left: 0px;
+}
+
+.insHeading {
+
+    background-color: #afaeae;
+    border-radius: 8px;
+    margin-right: 0px;
+    margin-left: 10px;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 30px;
+
+    height: 40px;
+    width: 90%;
+}
+
+.steps {
+    margin-top: -20px;
+    margin-left: 0px;
+    margin-right: -5px;
+    text-align: left;
+    padding-top: 0px;
+    border-radius: 10px;
+    font-size: 19px;
+
+    height: 550px;
+    overflow: auto;
+}
+
+.MyLabel {
+    background-color: #111111;
+    color: #e8e8e8;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
+
+    height: 120px;
+    width: 50px;
+
+    position: absolute;
+    top: 10px;
+    left: 300px;
+}
